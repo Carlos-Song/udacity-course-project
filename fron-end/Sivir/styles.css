@@ -12,15 +12,14 @@ div.description-article div.description {
     padding: 10px;
 }
 
-div.description-article div.description p{
+div.description-article div.description p {
     font-style: italic;
 }
 
-div.description-article div.description ul.description-items{
+div.description-article div.description ul.description-items {
     list-style: none;
     padding-left: 0;
 }
-
 
 div.description-article div.description ul.description-items span {
     font-weight: bolder;
