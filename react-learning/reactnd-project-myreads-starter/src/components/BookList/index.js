@@ -5,12 +5,22 @@ import BookShelf from './BookShelf'
 
 class BookList extends Component {
 
-   
+    constructor(props) {
+        super(props);
+        this.state = {
+            booklist: []
+        }
+    }
 
 
     render() {
-       
-      
+        let result;
+        if (this.state.booklist.length) {
+            result = this.state.booklist.map((book) => {
+                return (<BookShelf book={book}></BookShelf>);
+            });
+        }
+        console.log('8888', this.state.booklist);
         return (
             <div className="list-books">
                 <div className="list-books-title">
@@ -18,9 +28,7 @@ class BookList extends Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                        <BookShelf></BookShelf>
-                        <BookShelf></BookShelf>
-                        <BookShelf></BookShelf>                        
+                        {result}
                     </div>
                 </div>
                 <div className="open-search">
@@ -28,6 +36,11 @@ class BookList extends Component {
                 </div>
             </div>
         );
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            booklist: nextProps.booklist
+        });
     }
 }
 

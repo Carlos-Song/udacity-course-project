@@ -19,10 +19,10 @@ export const get = (bookId) =>
 
 export const getAll = () =>{
   
-  var arr = fetch(`${api}/books`, { headers })
+  return fetch(`${api}/books`, { headers })
     .then(res => res.json())
     .then(data => data.books)
-    return arr
+    
 }
 
 export const update = (book, shelf) =>
