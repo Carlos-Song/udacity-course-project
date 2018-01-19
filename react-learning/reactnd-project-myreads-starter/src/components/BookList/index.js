@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import BookShelf from './BookShelf'
 
+
+
 class BookList extends Component {
+
+   
+
+
     render() {
+       
+      
         return (
             <div className="list-books">
                 <div className="list-books-title">
@@ -16,7 +24,7 @@ class BookList extends Component {
                     </div>
                 </div>
                 <div className="open-search">
-                    <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+                    <a onClick={() => this.props.setState({ showSearchPage: true })}>Add a book</a>
                 </div>
             </div>
         );
