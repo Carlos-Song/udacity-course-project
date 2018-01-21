@@ -10,14 +10,27 @@ class BooksApp extends React.Component {
 
 
   state = {
-    showSearchPage: false,
+    showSearchPage: true,
     booklist: []
   }
   
   componentDidMount() {
-
+    getAll().then(books=> {
+      console.log(books);
+      this.setState({ booklist: books });
+    })
+  
   }
   
+  search = (search) => {
+    getAll({ search }).then((books) => {
+      this.setState({ booklist: books });
+    });
+  }
+
+  showChange(){
+    this.setState({showSearchPage:false});
+  }
 
   render() {
     
@@ -26,9 +39,8 @@ class BooksApp extends React.Component {
     return (
       
       <div className="app">
-        {this.state.showSearchPage 
-          ? <Search /> : <BookList booklist= {this.state.booklist}/>
-        }
+        <Search onSearch={this.search} />
+        <BookList booklist={this.state.booklist} />
       </div>
     )
   }
